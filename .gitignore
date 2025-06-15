@@ -1,0 +1,15 @@
+.env
+__pycache__/
+.DS_Store
+
+.src/study_crew_v2.testllm.py
+.knowledge/
+
+# ======================================
+# Environment / secrets
+# ======================================
+.env
+.env.*      # covers things like .env.production, .env.dev
+secrets.json
+*.key
+*.pem

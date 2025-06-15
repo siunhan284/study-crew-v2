@@ -2,8 +2,8 @@
 __pycache__/
 .DS_Store
 
-.src/study_crew_v2.testllm.py
-.knowledge/
+src/study_crew_v2.testllm.py
+knowledge/
 
 # ======================================
 # Environment / secrets

@@ -1,4 +1,6 @@
-from langchain.tools import structured_tool as tool
+# from langchain.tools import structured_tool as tool
+from langchain.tools import tool
+from crewai_tools import RagTool
 from pathlib import Path
 import fitz  # PyMuPDF
 
@@ -28,8 +30,19 @@ def extract_all_pdfs_from_knowledge() -> str:
 
     return combined_text.strip()
 
-extract_tool = StructuredTool.from_function(
-    func=extract_all_pdfs_from_knowledge,
-    name="extract_text",
-    description="Extracts plain text from all PDF files in the knowledge folder."
-)
+class ExtractionTool(RagTool):
+    """Tool to extract text from all PDF files in the knowledge folder."""
+    name: str = "extract_tool"
+    description: str = "Extracts plain text from all PDF files in the knowledge folder."
+
+    def _run(self, query: str) -> str:
+        """Extracts plain text from all PDF files in the knowledge folder."""
+        return extract_all_pdfs_from_knowledge()
+
+extract_tool = ExtractionTool()
+
+# extract_tool = StructuredTool.from_function(
+#     func=extract_all_pdfs_from_knowledge,
+#     name="extract_text",
+#     description="Extracts plain text from all PDF files in the knowledge folder."
+# )

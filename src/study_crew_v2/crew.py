@@ -39,29 +39,13 @@ class StudyCrewV2():
         )
 
     @agent
-    def summarizer_agent(self) -> Agent:
-        """Agent to summarize text."""
+    def summariser_agent(self) -> Agent:
+        """Agent to summarise text."""
         return Agent(
-            config=self.agents_config['summarizer_agent'], # type: ignore[index]
+            config=self.agents_config['summariser_agent'], # type: ignore[index]
             llm=azure_llm,
             verbose=True
         )
-
-    # @agent
-    # def researcher(self) -> Agent:
-    #     return Agent(
-    #         config=self.agents_config['researcher'], # type: ignore[index]
-    #         llm=azure_llm,
-    #         verbose=True
-    #     )
-
-    # @agent
-    # def reporting_analyst(self) -> Agent:
-    #     return Agent(
-    #         config=self.agents_config['reporting_analyst'], # type: ignore[index]
-    #         llm=azure_llm,
-    #         verbose=True
-    #     )
 
     # To learn more about structured task outputs,
     # task dependencies, and task callbacks, check out the documentation:
@@ -74,25 +58,12 @@ class StudyCrewV2():
         )
 
     @task
-    def summarization_task(self) -> Task:
-        """Task to summarize text."""
+    def summarisation_task(self) -> Task:
+        """Task to summarise text."""
         return Task(
-            config=self.tasks_config['summarization_task'], # type: ignore[index]
+            config=self.tasks_config['summarisation_task'], # type: ignore[index]
             output_file='summary.md'
         )
-
-    # @task
-    # def research_task(self) -> Task:
-    #     return Task(
-    #         config=self.tasks_config['research_task'], # type: ignore[index]
-    #     )
-
-    # @task
-    # def reporting_task(self) -> Task:
-    #     return Task(
-    #         config=self.tasks_config['reporting_task'], # type: ignore[index]
-    #         output_file='report.md'
-    #     )
 
     @crew
     def crew(self) -> Crew:

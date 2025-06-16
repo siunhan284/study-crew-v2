@@ -5,7 +5,7 @@ import warnings
 from datetime import datetime
 
 from study_crew_v2.crew import StudyCrewV2
-from study_crew_v2.tools import extract_tool
+from study_crew_v2.tools.extraction_tool import extract_tool
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
@@ -23,12 +23,6 @@ if __name__ == "__main__":
     print(result)
 
 def run():
-    from study_crew_v2.tools import tools
-    print("Tools loaded:", tools.keys())
-
-    """
-    Run the crew execution.
-    """
     try:
         StudyCrewV2().crew().kickoff()
 

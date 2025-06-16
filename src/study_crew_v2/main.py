@@ -5,6 +5,7 @@ import warnings
 from datetime import datetime
 
 from study_crew_v2.crew import StudyCrewV2
+from study_crew_v2.tools import extract_tool
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
@@ -13,17 +14,24 @@ warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 # Replace with inputs you want to test with, it will automatically
 # interpolate any tasks and agents information
 
+from study_crew_v2.crew import StudyCrewV2
+
+if __name__ == "__main__":
+    crew_instance = StudyCrewV2()
+    result = crew_instance.crew().kickoff()
+    print("\n📝 Final Output:\n")
+    print(result)
+
 def run():
+    from study_crew_v2.tools import tools
+    print("Tools loaded:", tools.keys())
+
     """
-    Run the crew.
+    Run the crew execution.
     """
-    inputs = {
-        'topic': 'AI LLMs',
-        'current_year': str(datetime.now().year)
-    }
-    
     try:
-        StudyCrewV2().crew().kickoff(inputs=inputs)
+        StudyCrewV2().crew().kickoff()
+
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
 

@@ -1,17 +1,37 @@
-research_task:
+pdf_extraction_task:
   description: >
-    Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
-    the current year is {current_year}.
+    Read all PDF documents in the knowledge folder and extract the complete content from each.
+    Ensure that any special characters, formatting, and structure are preserved in the text.
   expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
-  agent: researcher
+    A clean, combined text output from all PDFs, separated by file names for clarity.
+  agent: pdf_extractor_agent
 
-reporting_task:
+summarization_task:
   description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
+    Create well-structured and concise study notes from the extracted text.
+    The notes should be suitable for quick revision before exams — covering all key concepts, definitions,
+    explanations, and important points.
+    Use markdown formatting with headings, subheadings, and bullet points, but do not include triple backticks or code blocks.
+    Highlight formulas, dates, keywords, and definitions clearly.
   expected_output: >
-    A fully fledged report with the main topics, each with a full section of information.
-    Formatted as markdown without '```'
-  agent: reporting_analyst
+    A set of properly organised study notes in markdown format, tailored for effective exam preparation.
+    Each document's notes should be clearly separated with its title.
+  agent: summariser_agent
+
+# research_task:
+#   description: >
+#     Conduct a thorough research about {topic}
+#     Make sure you find any interesting and relevant information given
+#     the current year is {current_year}.
+#   expected_output: >
+#     A list with 10 bullet points of the most relevant information about {topic}
+#   agent: researcher
+
+# reporting_task:
+#   description: >
+#     Review the context you got and expand each topic into a full section for a report.
+#     Make sure the report is detailed and contains any and all relevant information.
+#   expected_output: >
+#     A fully fledged report with the main topics, each with a full section of information.
+#     Formatted as markdown without '```'
+#   agent: reporting_analyst

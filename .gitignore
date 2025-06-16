@@ -3,6 +3,7 @@ __pycache__/
 .DS_Store
 
 src/study_crew_v2.testllm.py
+src/study_crew_v2.test_extractor_tool.py
 knowledge/
 
 # ======================================

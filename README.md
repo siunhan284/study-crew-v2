@@ -1,7 +1,7 @@
 # study-crew-v2
 
 AI-powered study assistant built with CrewAI.  
-Upload study materials (PDFs), and interact with an intelligent agent crew to generate summaries, structured notes, and Q&A.
+Upload study materials (PDFs), and interact with an intelligent agent crew to generate summaries and structured notes.
 
 ---
 
@@ -30,6 +30,7 @@ study_crew_v2/
 │       │   └── tasks.yaml
 │       └── tools/
 │           └── custom_tool.py
+├── .env.example           # Example environment variables
 ```
 
 ---
@@ -63,11 +64,15 @@ pipx install poetry
 poetry install
 ```
 
-### 4. Activate the virtual environment
+### 4. Create `.env` file
+
+Duplicate the `.env.example` file and fill in your API keys and configuration:
 
 ```bash
-poetry shell
+cp .env.example .env
 ```
+
+Edit `.env` with your Azure OpenAI details.
 
 ---
 
@@ -85,16 +90,38 @@ poetry run run_crew
 
 ---
 
+## 🔐 .env Configuration
+
+Example `.env.example`:
+
+```
+model=azure/gpt-35-turbo
+AZURE_OPENAI_API_KEY=your_azure_api_key_here
+AZURE_OPENAI_ENDPOINT=https://your-endpoint.openai.azure.com/
+AZURE_OPENAI_API_VERSION=2024-05-01-preview # API version for Azure OpenAI
+AZURE_OPENAI_DEPLOYMENT_NAME=gpt-35-turbo # Deployment name for Azure OpenAI
+
+OPENAI_API_KEY=your_azure_api_key_here
+```
+
+> Both Azure OpenAI and OpenAI key fields are set for compatibility. Use Azure credentials for both.
+
+---
+
 ## 🧩 Dependencies
 
-- `crewai[tools]`  
-- `openai`, `langchain`, `langchain-openai`, `langchain-core`, `langchain-tools`  
-- `pymupdf` for PDF parsing  
+- `crewai[tools]`
+- `openai`, `langchain`, `langchain-openai`, `langchain-core`, `langchain-tools`
+- `pymupdf` for PDF parsing
 
-All managed via Poetry in `pyproject.toml`.
+All handled via Poetry in `pyproject.toml`.
 
 ---
 
 ## ✍️ Author
 
-**Harsh Vardhan Sharma** 
+**Harsh Vardhan Sharma**
+
+[GitHub Profile](https://github.com/code-master-harsh)
+
+---

@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 import sys
 import warnings
 
@@ -8,11 +7,6 @@ from study_crew_v2.crew import StudyCrewV2
 from study_crew_v2.tools.extraction_tool import extract_tool
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
-
-# This main file is intended to be a way for you to run your
-# crew locally, so refrain from adding unnecessary logic into this file.
-# Replace with inputs you want to test with, it will automatically
-# interpolate any tasks and agents information
 
 from study_crew_v2.crew import StudyCrewV2
 
